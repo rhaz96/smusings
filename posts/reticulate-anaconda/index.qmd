@@ -1,0 +1,9 @@
+---
+title: "Using reticulate with Anaconda (for Mac M1 folks)"
+author: "Robert Hazell"
+date: "2023-06-19"
+categories: [RStudio, R + Python]
+---
+
+I've been using Python more than ever compared to R over the last 1.5 years, but I'm still fond for R. Also a bit weary of the R vs Python debates. Won't be rehashing the arguments, but for those who'd like the best of both worlds, this article discusses how to integrate R and Python with RStudio using the `reticulate` package, assuming you use Anaconda to handle your Python needs (like I do). The `reticulate` documentation wasn't too clear on this, so perhaps this post will add a bit more context.
+

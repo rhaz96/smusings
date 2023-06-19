@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "smusings",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJun 19, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJun 19, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nUsing reticulate with Anaconda (for Mac M1 folks)\n\n\n\n\n\n\n\nRStudio\n\n\nR + Python\n\n\n\n\n\n\n\n\n\n\n\nJun 19, 2023\n\n\nRobert Hazell\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -26,5 +26,12 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "posts/reticulate-anaconda/index.html",
+    "href": "posts/reticulate-anaconda/index.html",
+    "title": "Using reticulate with Anaconda (for Mac M1 folks)",
+    "section": "",
+    "text": "I’ve been using Python more than ever compared to R over the last 1.5 years, but I’m still fond for R. Also a bit weary of the R vs Python debates. Won’t be rehashing the arguments, but for those who’d like the best of both worlds, this article discusses how to integrate R and Python with RStudio using the reticulate package, assuming you use Anaconda to handle your Python needs (like I do). The reticulate documentation wasn’t too clear on this, so perhaps this post will add a bit more context."
   }
 ]
