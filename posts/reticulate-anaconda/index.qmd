@@ -3,7 +3,62 @@ title: "Using reticulate with Anaconda (for Mac M1 folks)"
 author: "Robert Hazell"
 date: "2023-06-19"
 categories: [RStudio, R + Python]
+#image: "/posts/post-with-code/image.jpg"
 ---
+
+## The Best of Both Worlds
 
 I've been using Python more than ever compared to R over the last 1.5 years, but I'm still fond for R. Also a bit weary of the R vs Python debates. Won't be rehashing the arguments, but for those who'd like the best of both worlds, this article discusses how to integrate R and Python with RStudio using the `reticulate` package, assuming you use Anaconda to handle your Python needs (like I do). The `reticulate` documentation wasn't too clear on this, so perhaps this post will add a bit more context.
 
+## Oh What Fun with M1
+
+After 5.5 years with an Intel-based MacBook Air, moving to the M1 MBA was a well-deserved upgrade. But with it comes some back-end changes to how software is run due to the M1 SoC. Such is the case with `reticulate` and Anaconda.
+
+The basic issue is you can't directly use a conda environment that you created within Anaconda. Instead, you have to rely on the `miniconda` working environment that `reticulate` creates. It ensures your working environment has packages with ARM.
+
+Assuming you have Anaconda (see [here](https://www.anaconda.com/download/){target="_blank"}) and `reticulate` installed already (just do `install.packages("reticulate")`), you can easily create a conda environment like so:
+
+```{r eval = F}
+library(reticulate)
+
+conda_create(
+  envname = "testing2",
+  packages = c("scikit-learn"),
+  python_version = 3.8
+)
+```
+
+This creates an environment called `testing2`, and installs the Python `pandas` and `numpy` packages (besides the default Python packages that are automatically installed), as well as specifically installing Python version 3.8.
+
+If you now head to Anaconda Navigator, you'll see the environment under Environments.
+
+![Creating a new conda environment](Screenshot%202023-06-24%20at%202.36.47%20PM.png){fig-align="center"}
+
+Notice that hovering over the env name shows its location. By default when I first installed `reticulate`, it also downloads Miniconda with support for arm64 architecture for Python packages, storing it under `~/Library/r-miniconda-arm64`
+
+![R's output after installing Miniconda](Screenshot%202023-06-24%20at%203.42.49%20PM.png){fig-align="center"}
+
+That directory will store all conda environments under the `envs` directory
+
+![Where all Miniconda environments are stored](Screenshot%202023-06-24%20at%203.53.50%20PM.png){fig-align="center"}
+
+By default, `reticulate` creates a arm64 environment called `r-reticulate`, and we just created another environment called `testing2`.
+
+Now we can activate this environment using `use_condaenv` by passing its location (again found from hovering or going to the Library):
+
+```{r warning = F}
+reticulate::use_condaenv(condaenv = "~/Library/r-miniconda-arm64/envs/testing2")
+```
+
+And what about installing a particular version of a Python package within an environment? Earlier we installed `scikit-learn`, and by default it installs the latest version (which as of writing is 1.2.2).
+
+What if we wanted 1.2.1? Simply do this:
+
+```{r eval = F}
+reticulate::py_install(
+  packages = c("scikit-learn==1.2.1"),
+  envname = "~/Library/r-miniconda-arm64/envs/testing2",
+  method = "conda")
+```
+
+Now you must restart your R session. After doing so, R will reflect that upgraded (or in this case, downgraded) scikit-learn version.

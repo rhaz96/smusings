@@ -3,7 +3,10 @@ project:
 
 website:
   title: "smusings"
+  favicon: "favicon.png"
   navbar:
+    background: "black"
+    foreground: 'white'
     right:
       - about.qmd
       - icon: github
@@ -12,7 +15,10 @@ website:
         href: https://twitter.com
 format:
   html:
-    theme: cosmo
+    #theme: cosmo
+    theme:
+      light: cosmo
+      dark: [cosmo, dark-theme.scss]
     css: styles.css
 
 editor: visual
