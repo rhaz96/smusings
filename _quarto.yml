@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "smusings"
+  title: "Statistical Musings"
   favicon: "favicon.png"
   navbar:
     background: "black"

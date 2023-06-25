@@ -1,5 +1,5 @@
 ---
-title: "smusings"
+title: "Reflections on statistics and data science"
 listing:
   contents: posts
   sort: "date desc"
